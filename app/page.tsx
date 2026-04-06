@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustedBy />
+      {/* <TrustedBy /> */}
       <Features />
       <StepsSection />
       <VideoSection />
