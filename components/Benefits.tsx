@@ -33,7 +33,7 @@ const services = [
 
 export default function Benefits() {
   return (
-    <section className="section-padding bg-slate-900 border-t border-slate-800 relative overflow-hidden">
+    <section className="section-padding bg-slate-50 border-t border-slate-200 relative overflow-hidden">
       {/* Background glow */}
       <div 
         className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full pointer-events-none opacity-20"
@@ -49,13 +49,13 @@ export default function Benefits() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-extrabold mb-6 text-white leading-tight">
+            <h2 className="text-4xl font-extrabold mb-6 text-slate-900 leading-tight">
               Des solutions adaptées à <br />
               <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #06B6D4, #8B5CF6)' }}>
                 chaque métier
               </span>
             </h2>
-            <p className="text-lg text-slate-400 leading-relaxed mb-8">
+            <p className="text-lg text-slate-600 leading-relaxed mb-8">
               Parce qu&apos;une entreprise du bâtiment ne court pas les mêmes risques qu&apos;un chauffeur VTC, 
               nous proposons des contrats spécialisés, négociés auprès des meilleures compagnies.
             </p>
@@ -65,8 +65,8 @@ export default function Benefits() {
                 'Négociation des primes d\'assurance',
                 'Accompagnement juridique en cas de litige'
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-slate-300">
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center bg-indigo-500/20 text-indigo-400">
+                <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                  <div className="w-5 h-5 rounded-full flex items-center justify-center bg-indigo-100 text-indigo-600">
                     <ArrowRight size={12} />
                   </div>
                   {item}
@@ -91,17 +91,16 @@ export default function Benefits() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="rounded-2xl p-6 relative group transition-all duration-300 hover:-translate-y-1"
+                  className="rounded-2xl p-6 relative group transition-all duration-300 hover:-translate-y-1 bg-white"
                   style={{ 
-                    background: 'rgba(30,41,59,0.5)', 
-                    border: '1px solid rgba(255,255,255,0.05)',
+                    border: '1px solid #E2E8F0',
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${service.color}40`;
+                    (e.currentTarget as HTMLElement).style.borderColor = service.color;
                     (e.currentTarget as HTMLElement).style.boxShadow = `0 10px 30px ${service.color}15`;
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.05)';
+                    (e.currentTarget as HTMLElement).style.borderColor = '#E2E8F0';
                     (e.currentTarget as HTMLElement).style.boxShadow = 'none';
                   }}
                 >
@@ -111,8 +110,8 @@ export default function Benefits() {
                   >
                     <Icon size={24} color={service.color} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{service.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {service.description}
                   </p>
                 </motion.div>
