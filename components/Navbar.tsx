@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Shield, ChevronRight } from 'lucide-react'
+import AnimatedLogo from './AnimatedLogo'
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
@@ -39,15 +40,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between" style={{ height: '72px' }}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
-            style={{ background: 'linear-gradient(135deg,#4F46E5,#06B6D4)' }}
-          >
-            <Shield size={18} color="white" strokeWidth={2.5} />
-          </div>
-          <span className="text-xl font-bold tracking-tight" style={{ color: '#0F172A' }}>
-            Lynxia<span className="gradient-text"> Assur Conseil</span>
-          </span>
+          <AnimatedLogo />
         </Link>
 
         {/* Desktop nav */}

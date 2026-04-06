@@ -117,6 +117,7 @@ export default function ContactClient() {
                   Aucun frais de dossier caché. Nos devis d&apos;assurance sont entièrement gratuits et sans engagement de votre part.
                 </div>
               </div>
+
             </motion.div>
 
             {/* Right: Form */}
@@ -231,6 +232,20 @@ export default function ContactClient() {
             </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* Map Section (Full Width) */}
+      <section className="w-full h-[500px] bg-slate-100 relative">
+        <iframe
+          src="https://maps.google.com/maps?q=6%20Rue%20des%20Bateliers,%2092110%20Clichy&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
       </section>
     </div>
   )

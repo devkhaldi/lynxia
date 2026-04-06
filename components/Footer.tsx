@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { Shield, ExternalLink, MessageSquare, Code2, Mail, Phone, MapPin } from 'lucide-react'
+import AnimatedLogo from './AnimatedLogo'
 
 const footerLinks = {
   Navigation: [
@@ -30,13 +31,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: 'linear-gradient(135deg,#4F46E5,#06B6D4)' }}
-              >
-                <Shield size={18} color="white" strokeWidth={2.5} />
-              </div>
+            <Link href="/" className="flex items-center gap-3 mb-4">
+              <AnimatedLogo />
               <span className="text-xl font-bold text-white">
                 Lynxia<span className="gradient-text"> Assur Conseil</span>
               </span>

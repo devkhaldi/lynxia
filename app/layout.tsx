@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-inter, Inter, sans-serif)" }}>
         <Navbar />
         <main className="flex-1">{children}</main>
+        <WhatsAppFloat />
         <Footer />
       </body>
     </html>
