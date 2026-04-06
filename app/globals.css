@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4F46E5;
+  --color-primary-light: #6366F1;
+  --color-primary-dark: #3730A3;
+  --color-secondary: #06B6D4;
+  --color-secondary-light: #22D3EE;
+  --color-dark: #0F172A;
+  --color-dark-card: #1E293B;
+  --color-background: #F9FAFB;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #F9FAFB;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #4F46E5;
+  border-radius: 3px;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated gradient background */
+.hero-gradient {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0F7FA 40%, #F0FDF4 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.12) 0%, transparent 70%);
+  top: -200px;
+  right: -200px;
+  border-radius: 50%;
+  animation: float-orb 8s ease-in-out infinite;
+}
+
+.hero-gradient::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.10) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  border-radius: 50%;
+  animation: float-orb 10s ease-in-out infinite reverse;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.08);
+}
+
+/* Feature card hover glow */
+.feature-card {
+  transition: all 0.3s ease;
+  border: 1px solid #E2E8F0;
+  background: white;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: #4F46E5;
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15), 0 0 0 1px rgba(79, 70, 229, 0.1);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+.float-animation-delay {
+  animation: float 4s ease-in-out 1s infinite;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 20s linear infinite;
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #4F46E5, #6366F1);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+  background: linear-gradient(135deg, #4338CA, #4F46E5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #4F46E5;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border: 2px solid #4F46E5;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover {
+  background: #EEF2FF;
+  transform: translateY(-2px);
+}
+
+/* Section padding */
+.section-padding {
+  padding: 96px 0;
+}
+
+/* Step connector line */
+.step-line {
+  position: absolute;
+  top: 24px;
+  left: calc(50% + 32px);
+  right: calc(-50% + 32px);
+  height: 2px;
+  background: linear-gradient(90deg, #4F46E5, #06B6D4);
+}
