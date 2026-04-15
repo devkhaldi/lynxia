@@ -18,7 +18,7 @@ export async function sendEmail(formData: FormData) {
   try {
     const { data, error } = await resend.emails.send({
       from: 'Lynxia Assur Conseil <onboarding@resend.dev>', // Use a verified domain in production
-      to: ['el.khaldi.ab@gmail.com'],
+      to: ['contact@lynxiaassurconseil.com'],
       subject: `Nouveau devis : ${insuranceType} - ${name}`,
       text: `
         Nom: ${name}
