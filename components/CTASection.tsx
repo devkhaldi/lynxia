@@ -49,14 +49,14 @@ export default function CTASection() {
                 Demander un devis <ArrowRight size={18} />
               </button>
             </Link>
-            <a href="tel:0183865553">
+            <a href="tel:0605869207">
               <button 
                 className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors"
                 style={{ background: 'white', color: '#0F172A', border: '1px solid #E2E8F0' }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = '#F8FAFC')}
                 onMouseLeave={(e) => (e.currentTarget.style.background = 'white')}
               >
-                <PhoneCall size={18} color="#4F46E5" /> 01 83 86 55 53
+                <PhoneCall size={18} color="#4F46E5" /> 06 05 86 92 07
               </button>
             </a>
           </div>

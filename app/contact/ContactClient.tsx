@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { sendEmail } from './actions'
 
 export default function ContactClient() {
   const [form, setForm] = useState({ 
@@ -14,6 +15,7 @@ export default function ContactClient() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -22,9 +24,19 @@ export default function ContactClient() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    await new Promise((r) => setTimeout(r, 1500))
+    setError(null)
+    
+    const formData = new FormData()
+    Object.entries(form).forEach(([key, value]) => formData.append(key, value))
+    
+    const result = await sendEmail(formData)
+    
     setLoading(false)
-    setSubmitted(true)
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError(result.error || 'Une erreur est survenue.')
+    }
   }
 
   const inputStyle = {
@@ -86,8 +98,8 @@ export default function ContactClient() {
 
               {[
                 { icon: Mail, label: 'Email', value: 'contact@lynxiaassurconseil.com', color: '#4F46E5' },
-                { icon: Phone, label: 'Téléphone', value: '01 83 86 55 53', color: '#06B6D4' },
-                { icon: MapPin, label: 'Bureau', value: '6 Rue des Bateliers, 92110 Clichy', color: '#8B5CF6' },
+                { icon: Phone, label: 'Téléphone', value: '06 05 86 92 07', color: '#06B6D4' },
+                { icon: MapPin, label: 'Bureau', value: 'Bureau 3, 6 Rue des Bateliers, 92110 Clichy, France', color: '#8B5CF6' },
               ].map(({ icon: Icon, label, value, color }) => (
                 <div
                   key={label}
@@ -147,6 +159,15 @@ export default function ContactClient() {
                     <h3 className="text-xl font-bold mb-6" style={{ color: '#0F172A' }}>
                       Votre demande de devis
                     </h3>
+                    {error && (
+                      <div 
+                        className="mb-6 p-4 rounded-xl flex items-center gap-3 text-sm"
+                        style={{ background: '#FEF2F2', border: '1px solid #FEE2E2', color: '#DC2626' }}
+                      >
+                        <AlertCircle size={18} />
+                        {error}
+                      </div>
+                    )}
                     <form onSubmit={handleSubmit} className="space-y-5">
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
@@ -237,7 +258,7 @@ export default function ContactClient() {
       {/* Map Section (Full Width) */}
       <section className="w-full h-[500px] bg-slate-100 relative">
         <iframe
-          src="https://maps.google.com/maps?q=6%20Rue%20des%20Bateliers,%2092110%20Clichy&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=Bureau%203%206%20Rue%20des%20Bateliers%2092110%20Clichy%20France&t=&z=15&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}

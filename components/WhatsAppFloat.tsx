@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 
 export default function WhatsAppFloat() {
-  const phoneNumber = '33183865553'
-  const message = 'Bonjour Lynxia Assur Conseil, je souhaite obtenir un devis. Je vous contacte via votre site web: https://lynxiaconseil.fr/'
+  const phoneNumber = '33605869207'
+  const message = 'Bonjour Lynxia Assur Conseil, je souhaite obtenir un devis pour mon entreprise.'
   const encodedMessage = encodeURIComponent(message)
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
 

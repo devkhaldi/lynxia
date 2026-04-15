@@ -73,8 +73,8 @@ export default function Footer() {
             <div className="mt-6 space-y-2">
               {[
                 { icon: Mail, text: 'contact@lynxiaassurconseil.com' },
-                { icon: Phone, text: '01 83 86 55 53' },
-                { icon: MapPin, text: '6 Rue des Bateliers, 92110 Clichy' },
+                { icon: Phone, text: '06 05 86 92 07' },
+                { icon: MapPin, text: 'Bureau 3, 6 Rue des Bateliers, 92110 Clichy, France' },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 text-sm" style={{ color: '#94A3B8' }}>
                   <Icon size={14} style={{ color: '#4F46E5' }} />
