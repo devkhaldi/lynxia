@@ -32,7 +32,7 @@ export async function sendEmail(formData: FormData) {
 
     if (error) {
       console.error('Resend error:', error)
-      return { error: 'Une erreur est survenue lors de l\'envoi du message.' }
+      return { error: `Erreur Resend: ${error.message}` }
     }
 
     return { success: true }
